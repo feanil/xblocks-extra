@@ -5,7 +5,6 @@
 REPO_ROOT := $(shell pwd)
 SRC_DIRECTORY := src
 EXTRACT_DIR := conf/locale/en/LC_MESSAGES
-COMBINED_LOCALE_DIR := conf/locale/en/LC_MESSAGES
 # XBlock directories
 XBLOCKS=$(shell find $(REPO_ROOT)/$(SRC_DIRECTORY) -mindepth 2 -maxdepth 2 -type d -name 'conf' -exec dirname {} \;)
 
@@ -56,7 +55,7 @@ extract_translations: ## extract strings to be translated, outputting .po files 
 		fi; \
 		mkdir -p $(REPO_ROOT)/$$module_name/$(EXTRACT_DIR); \
 		if [ -f $$xblock/$(EXTRACT_DIR)/django.po ]; then \
- 			mv $$xblock/$(EXTRACT_DIR)/django.po $(REPO_ROOT)/$$module_name/$(EXTRACT_DIR)/django.po; \
+			mv $$xblock/$(EXTRACT_DIR)/django.po $(REPO_ROOT)/$$module_name/$(EXTRACT_DIR)/django.po; \
 		fi; \
 	done
 
